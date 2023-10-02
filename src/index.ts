@@ -8,7 +8,7 @@ import {
   addDataLoader,
   AppSyncSimulatorDataSourceType,
   removeDataLoader,
-} from 'amplify-appsync-simulator';
+} from '@aws-amplify/amplify-appsync-simulator';
 import watchman from 'fb-watchman';
 import { Hook } from 'serverless';
 import Serverless from 'serverless/lib/Serverless';

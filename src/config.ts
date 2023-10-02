@@ -16,7 +16,7 @@ import {
   AppSyncSimulatorPipelineResolverConfig,
   AppSyncSimulatorUnitResolverConfig,
   RESOLVER_KIND,
-} from 'amplify-appsync-simulator';
+} from '@aws-amplify/amplify-appsync-simulator';
 import { Lambda } from 'aws-sdk';
 import NodeEvaluator from 'cfn-resolver-lib';
 import { get, merge, reduce } from 'lodash';
@@ -510,7 +510,7 @@ function buildDataSource(
           if (s == null) {
             return null;
           } else {
-            return JSON.parse(s);
+            return JSON.parse(s); // TODO: Handle empty string
           }
         },
       };
