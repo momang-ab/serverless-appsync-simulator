@@ -506,12 +506,8 @@ function buildDataSource(
               throw new Error(result.FunctionError);
             }
           }
-          const s = result.Payload?.toLocaleString();
-          if (s == null) {
-            return null;
-          } else {
-            return JSON.parse(s); // TODO: Handle empty string
-          }
+          const resultPayload = result.Payload?.toLocaleString();
+          return !resultPayload ? null : JSON.parse(resultPayload);
         },
       };
     }
