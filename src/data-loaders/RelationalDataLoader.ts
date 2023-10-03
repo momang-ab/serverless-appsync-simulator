@@ -95,6 +95,7 @@ const convertPostgresSQLResponseToColumnMetaData = (rows: FieldDef[]) => {
   return rows.map((row) => {
     const typeName = (() => {
       for (const [key, value] of Object.entries(pgTypes.builtins)) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
         if (value === row.dataTypeID) {
           return key;
         }

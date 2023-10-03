@@ -162,10 +162,10 @@ class ServerlessAppSyncSimulator {
     });
   }
 
-  endServers() {
+  async endServers() {
     if (this.simulator != null) {
       this.log('Halting AppSync Simulator');
-      this.simulator.amplifySimulator.stop();
+      await this.simulator.amplifySimulator.stop();
     }
   }
 }

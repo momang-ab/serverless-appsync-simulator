@@ -5,8 +5,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { readFileSync } from 'fs';
 import path from 'path';
-import { mergeTypeDefs } from '@graphql-tools/merge';
-import type { AWS } from '@serverless/typescript';
 import {
   AmplifyAppSyncAuthenticationProviderConfig,
   AmplifyAppSyncSimulator,
@@ -17,6 +15,8 @@ import {
   AppSyncSimulatorUnitResolverConfig,
   RESOLVER_KIND,
 } from '@aws-amplify/amplify-appsync-simulator';
+import { mergeTypeDefs } from '@graphql-tools/merge';
+import type { AWS } from '@serverless/typescript';
 import { Lambda } from 'aws-sdk';
 import NodeEvaluator from 'cfn-resolver-lib';
 import { get, merge, reduce } from 'lodash';
