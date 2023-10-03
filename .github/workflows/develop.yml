@@ -7,19 +7,21 @@ on:
     branches:
       - develop
 
+permissions:
+  contents: read # for checkout
+
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          persist-credentials: false
-      - uses: actions/setup-node@v2
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
       - name: Install dependencies
-        run: |
-          yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile
       - name: Run lint
         run: yarn run lint
       - name: Run tests
