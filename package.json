@@ -11,7 +11,7 @@
     "url": "git+https://github.com/momang-ab/serverless-appsync-simulator.git"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --forceExit",
     "build": "tsc -p .",
     "watch": "yarn run build -w",
     "lint": "eslint . && tsc --noEmit",
