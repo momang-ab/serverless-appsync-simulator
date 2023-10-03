@@ -1,14 +1,14 @@
 {
-  "name": "serverless-appsync-simulator",
+  "name": "@momang/serverless-appsync-simulator",
   "version": "0.0.0-development",
   "main": "lib/index.js",
   "author": "bboure",
   "license": "MIT",
   "private": false,
-  "description": "Offline support for serverless-appsync-plugin",
+  "description": "Offline support for serverless-appsync-plugin. Fork of original serverless-appsync-offline plugin by bboure at https://github.com/serverless-appsync/serverless-appsync-simulator.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/serverless-appsync/serverless-appsync-simulator.git"
+    "url": "git+https://github.com/momang-ab/serverless-appsync-simulator.git"
   },
   "scripts": {
     "test": "jest",
