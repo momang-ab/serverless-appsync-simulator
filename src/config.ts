@@ -5,8 +5,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { readFileSync } from 'fs';
 import path from 'path';
-import { mergeTypeDefs } from '@graphql-tools/merge';
-import type { AWS } from '@serverless/typescript';
 import {
   AmplifyAppSyncAuthenticationProviderConfig,
   AmplifyAppSyncSimulator,
@@ -16,7 +14,9 @@ import {
   AppSyncSimulatorPipelineResolverConfig,
   AppSyncSimulatorUnitResolverConfig,
   RESOLVER_KIND,
-} from 'amplify-appsync-simulator';
+} from '@aws-amplify/amplify-appsync-simulator';
+import { mergeTypeDefs } from '@graphql-tools/merge';
+import type { AWS } from '@serverless/typescript';
 import { Lambda } from 'aws-sdk';
 import NodeEvaluator from 'cfn-resolver-lib';
 import { get, merge, reduce } from 'lodash';
@@ -506,12 +506,8 @@ function buildDataSource(
               throw new Error(result.FunctionError);
             }
           }
-          const s = result.Payload?.toLocaleString();
-          if (s == null) {
-            return null;
-          } else {
-            return JSON.parse(s);
-          }
+          const resultPayload = result.Payload?.toLocaleString();
+          return !resultPayload ? null : JSON.parse(resultPayload);
         },
       };
     }

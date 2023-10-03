@@ -8,7 +8,7 @@ import {
   addDataLoader,
   AppSyncSimulatorDataSourceType,
   removeDataLoader,
-} from 'amplify-appsync-simulator';
+} from '@aws-amplify/amplify-appsync-simulator';
 import watchman from 'fb-watchman';
 import { Hook } from 'serverless';
 import Serverless from 'serverless/lib/Serverless';
@@ -162,10 +162,10 @@ class ServerlessAppSyncSimulator {
     });
   }
 
-  endServers() {
+  async endServers() {
     if (this.simulator != null) {
       this.log('Halting AppSync Simulator');
-      this.simulator.amplifySimulator.stop();
+      await this.simulator.amplifySimulator.stop();
     }
   }
 }

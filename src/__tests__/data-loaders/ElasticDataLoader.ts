@@ -1,5 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { PassThrough } from 'stream';
 import * as AWS from 'aws-sdk';
 import axios from 'axios';
@@ -35,14 +39,15 @@ describe('data-loaders/ElasticDataLoader', () => {
       'handleRequest',
     );
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let signedRequest: any;
     const mockStream = new PassThrough();
-    spyHandleRequest.mockImplementation((request, _options, callback) => {
-      signedRequest = request;
-      // @ts-ignore
-      callback(mockStream);
-    });
+    spyHandleRequest.mockImplementation(
+      (request: any, _options: any, callback: any) => {
+        signedRequest = request;
+        // @ts-ignore
+        callback(mockStream);
+      },
+    );
 
     const loader = new ElasticDataLoader({
       endpoint: 'https://my-elasticsearch-cluster.region.amazonaws.com',
