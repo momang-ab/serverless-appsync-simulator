@@ -1,5 +1,7 @@
 name: Verify
 
+concurrency: ${{github.workflow}}
+
 on:
   push:
     branches:

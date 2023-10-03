@@ -1,5 +1,7 @@
 name: Release
 
+concurrency: ${{github.workflow}}
+
 on:
   push:
     branches:
