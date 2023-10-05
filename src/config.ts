@@ -477,7 +477,7 @@ function buildDataSource(
       const lambda = new Lambda({
         apiVersion: '2015-03-31',
         region: 'localhost',
-        endpoint: `http://localhost:${options.lambdaPort as number}`,
+        endpoint: `http://127.0.0.1:${options.lambdaPort as number}`,
       });
       return {
         ...dataSource,
